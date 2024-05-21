@@ -73,7 +73,7 @@
   }
   
   .active .step-number {
-    background-color: #007bff;
+    background-color: #28a745;
     color: #fff;
   }
   
@@ -85,7 +85,7 @@
   .progress-bar {
     position: absolute;
     top: 25%;
-    width: 100%;
+    width: 150%;
     left: 0;
     height: 4px;
     background-color: #ccc;
@@ -97,21 +97,42 @@
     transition: 0.2s ease;
   }
 
-
-  /* stepper */
-  .step-item:not(:first-child):before {
-    @apply content-[''] bg-slate-200 absolute w-full h-[3px] right-2/4 top-1/3
-    -translate-y-1/2;
-    /* content: '';
-    background-color: slategray ;
+  .step-item:not(:first-child)::before {
+    content: '';
+    background-color: #e2e8f0; 
     position: absolute;
-    width: 100%; */
+    width: 150%;
+    height: 3px;
+    right: 50%;
+    top: 33%;
+    transform: translateY(-50%);
+    z-index: 40;
+  }
+  
+  .step-progress.komplit:not(:first-child)::before {
+    @apply bg-hijau
   }
 
+  .step-progress:not(:first-child)::before {
+    content: '';
+    background-color: #e2e8f0; /* bg-slate-200 */
+    position: absolute;
+    width: 250%;
+    height: 3px;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .step-item.komplit:not(:first-child)::before {
+    @apply bg-hijau
+  }
+
+
   .active .step {
-    @apply bg-blue-600;
+    @apply bg-hijau
   }
 
   .complete .step {
-    @apply bg-green-600
+    @apply bg-hijau
   }

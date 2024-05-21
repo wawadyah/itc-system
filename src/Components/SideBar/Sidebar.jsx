@@ -25,43 +25,43 @@ const Sidebar = ({ sidebarToggle }) => {
         id : 1,
         name: 'Home',
         icon: icon1,
-        path: '/',
+        path: '/admin',
     },
     {
         id : 2,
         name: 'Jadwal',
         icon: icon2,
-        path: '/jadwal',
+        path: '/admin/jadwal',
     },
     {
         id : 3,
         name: 'Soal',
         icon: icon3,
-        path: '/soal',
+        path: '/admin/soal',
     },
     {
         id : 4,
         name: 'Peserta',
         icon: icon4,
-        path: '/peserta',
+        path: '/admin/peserta',
     },
     {
       id : 5,
       name: 'Penilaian',
       icon: icon5,
-      path: '/penilaian',
+      path: '/admin/penilaian',
     },
     {
         id : 6,
         name: 'User Management',
         icon: icon6,
-        path: '/user-management',
+        path: '/admin/user-management',
     },
     {
         id : 7,
         name: 'Log Out',
         icon: icon7,
-        path: '/logout',
+        path: '/admin/logout',
     },
 ];
  
@@ -77,7 +77,8 @@ const Sidebar = ({ sidebarToggle }) => {
           <ul className="text-barColor">
           {
               logo.map(item => (
-                <li key={item.id} className={`group p-[8px] mb-2  ${activePath === item.path ? 'bg-[#F3F4F6] rounded-lg' : 'hover:bg-[#F3F4F6] hover:rounded-lg'} cursor-pointer`}>
+                <li key={item.id} className={`group p-[8px] mb-2  ${activePath.startsWith(item.path) ? 'bg-[#F3F4F6] rounded-lg' : 'hover:bg-[#F3F4F6] hover:rounded-lg'} cursor-pointer
+                `}>
                   <Link to={item.path} className="group-hover:text-black flex items-center w-5/6 ">
                     <img src={item.icon} alt="icon" className="mr-4 w-[24px]" />
                     <p className={`text-xs duration-500`}>{item.name}</p>

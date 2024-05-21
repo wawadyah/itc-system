@@ -4,7 +4,7 @@ const SettiingMode = ({ colorMode, toggleColorMode }) => {
   return (
     <div className='p-6 text-gray-500 text-sm'>
       <p className='mb-4'>Bebas atur filter warna yang kamu sukai dan nyaman dilihat.</p>
-      <p className='font-bold mb-4'>Tema</p>
+      <p className='font-bold mb-4`'>Tema</p>
 
       <div className='border p-4 mb-2 rounded-md flex w-1/2 items-center justify-between'>
         <div className=''>

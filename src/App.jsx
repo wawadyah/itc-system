@@ -15,6 +15,7 @@ import Popup from "./Components/Popup";
 import SettingAccount from "./Pages/SettingAccount";
 import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/SideBar/Sidebar";
+import DetailJadwal from "./Components/Jadwal/Detail/DetailJadwal";
 
 function App() {
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -38,18 +39,27 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/user/user-settings" element={< SettingAccount />} />
+      {/* ADMIN SECTION */}
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/admin/user/user-settings" element={< SettingAccount />} />
 
-        <Route path="/jadwal" element={<Jadwal handleOrderPopup={handleOrderPopup} />} />
-        <Route path="/soal" element={<Soal />} />
-        <Route path="/peserta" element={<Peserta />} />
-        <Route path="/penilaian" element={<Penilaian />} />
-        <Route path="/user-management" element={<UserManagement />} />
-        <Route path="/logout" element={<Login />} />
-        <Route path="/jadwal-riwayat" element={<Riwayat />} />
-        <Route path="/tambah-jadwal" element={<TambahJadwal />} />
-        <Route path="/settings-account" element={<Dashboard />} />
+        <Route path="/admin/jadwal" element={<Jadwal handleOrderPopup={handleOrderPopup} />} />
+        <Route path="/admin/soal" element={<Soal />} />
+        <Route path="/admin/peserta" element={<Peserta />} />
+        <Route path="/admin/penilaian" element={<Penilaian />} />
+        <Route path="/admin/user-management" element={<UserManagement />} />
+        <Route path="/admin/logout" element={<Login />} />
+        <Route path="/admin/jadwal-riwayat" element={<Riwayat />} />
+        <Route path="/admin/tambah-jadwal" element={<TambahJadwal />} />
+        <Route path="/admin/settings-account" element={<Dashboard />} />
+        <Route path="/admin/jadwal/psikotes-mandiri-taspen" element={<DetailJadwal />} />
+
+      {/* ADMIN SECTION END */}
+
+    {/* USER SECTION */}
+
+    {/* USER SECTION END */}
+
       </Routes>
     </BrowserRouter>
     <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />

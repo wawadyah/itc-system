@@ -2,19 +2,30 @@ import { FaPlus } from "react-icons/fa6";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FaPencilAlt } from "react-icons/fa";
 import { RiArrowDropDownFill } from "react-icons/ri";
+import { useState } from "react";
+import AddSoal from "./AddSoal";
 
-const SoalPeserta = () => {
+const SoalPeserta = ({ handleEditSoal }) => {
+  const [addSoal, setAddSoal] = useState(false);
+
+  const handleAddSoal = () => {
+      setAddSoal(!addSoal);
+  }
+
   return (
-    <div className="absolute z-1 m-auto md:left-60 top-[78px] bottom-0 right-0 p-6">
+    
+    <div>
+      { addSoal && <AddSoal handleAddSoal={ handleAddSoal } /> }
+      <div className="absolute z-1 m-auto md:left-60 top-[78px] bottom-0 right-0 p-6">
       <div className="text-gray-400 text-sm flex items-center">
         <div className="flex items-center">Soal</div>
       </div>
 
       <div className="w-full mt-4 flex justify-between">
         <div className="font-bold text-lg">Soal</div>
-        <button className="rounded-sm bg-[#20C462] text-white font-medium flex items-center px-2 py-1 text-sm mb-4">
+        <button onClick={() => handleAddSoal()} className="rounded-sm bg-[#20C462] text-white font-medium flex items-center px-2 py-1 text-sm mb-4 gap-2">
           {" "}
-          <FaPlus className="" /> Tambah Jadwal{" "}
+          <FaPlus className="" /> Tambah Soal{" "}
         </button>
       </div>
 
@@ -163,31 +174,7 @@ const SoalPeserta = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline flex gap-4 text-[20px]"
                     >
-                      <FaPencilAlt className="text-gray-600 cursor-pointer hover:text-lineColor" />
-                      <BsFillTrashFill className="text-gray-600 cursor-pointer hover:text-lineColor" />
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b ">
-                  <th
-                    scope="row"
-                    className="pl-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >
-                    2
-                  </th>
-                  <td className="px-4 py-4">IST</td>
-                  <td className="px-2 py-4">Tes Intelegensi</td>
-                  <td className="px-2 py-4">9</td>
-                  <td className="px-2 py-4 ">13 Okt 2022 - 09:00 WIB</td>
-                  <td className="px-2 py-4 flex items-center">
-                    <p className="text-sm">14 Okt 2022 - 09:00 WIB</p>
-                  </td>
-                  <td className="px-2 py-4 text-right">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline flex gap-4 text-[20px]"
-                    >
-                      <FaPencilAlt className="text-gray-600 cursor-pointer hover:text-lineColor" />
+                      <FaPencilAlt onClick={() => handleEditSoal()} className="text-gray-600 cursor-pointer hover:text-lineColor" />
                       <BsFillTrashFill className="text-gray-600 cursor-pointer hover:text-lineColor" />
                     </a>
                   </td>
@@ -214,6 +201,7 @@ const SoalPeserta = () => {
       </div>
 
       {/* table section */}
+    </div>
     </div>
   );
 };
